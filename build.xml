@@ -27,7 +27,7 @@
   	</target>
 
   	<target name="compile" depends="init">
-   		<javac
+   		<javac includeantruntime="false"
       	srcdir="src"
      	 destdir="${classdir}" />
   	</target>
@@ -56,8 +56,5 @@
 				<report format="frames" todir="${junit.output.dir}" />
 			</junitreport>
 		</target>
-		
-	
-
 	
 </project>
