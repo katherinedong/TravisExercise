@@ -15,6 +15,11 @@
 		<pathelement location="bin" />
 		<path refid="JUnit 4.libraryclasspath"/>
 	</path>
+	
+	<target name="clean">
+		<delete dir="${blddir}" />
+		<delete dir="${classdir}" />
+	</target>
 			
   	<target name="init">
     	<mkdir dir="${blddir}" />
@@ -36,7 +41,7 @@
 		</jar>	
 	</target>
 	
-	<target name="test">
+	<target name="check">
 			<mkdir dir = "${junit.output.dir}" />
 			<junit fork="yes" printsummary="withOutAndErr">
 				<formatter type="xml" />
