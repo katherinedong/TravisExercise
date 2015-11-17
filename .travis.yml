@@ -4,4 +4,4 @@ jdk: oraclejdk7
 script: ant clean
 script: ant
 script: ant link
-script: ant test
+script: ant check

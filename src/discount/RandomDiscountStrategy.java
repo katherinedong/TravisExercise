@@ -1,3 +1,5 @@
+package discount;
+
 import java.util.Random;
 
 public class RandomDiscountStrategy
@@ -7,6 +9,9 @@ public class RandomDiscountStrategy
 
   public RandomDiscountStrategy() {
     this.rng = new Random();
+  }
+  public Random getRng() {
+	  return rng;
   }
 
   public float applyDiscount(Order order) {
