@@ -19,6 +19,7 @@
 	<target name="clean">
 		<delete dir="${blddir}" />
 		<delete dir="${classdir}" />
+		<delete dir="${junit.output.dir}" />
 	</target>
 			
   	<target name="init">
@@ -45,7 +46,7 @@
 			<mkdir dir = "${junit.output.dir}" />
 			<junit fork="yes" printsummary="withOutAndErr">
 				<formatter type="xml" />
-				<test name="test.OrderTest" todir="${junit.output.dir}" />
+				<test name="test.DiscountTest" todir="${junit.output.dir}" />
 				<classpath refid="TravisExercise.classpath" />
 			</junit>
 				
