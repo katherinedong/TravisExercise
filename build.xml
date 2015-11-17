@@ -32,7 +32,6 @@
 		</junitreport>
 	</target>
 			
-	
   	<target name="init">
     	<mkdir dir="${blddir}" />
     	<mkdir dir="${classdir}" />
@@ -43,5 +42,17 @@
       	srcdir="src"
      	 destdir="${classdir}" />
   	</target>
+	
+	<target name="link">
+		<mkdir dir="bin/jar"/>
+		<jar destfile="bin/jar/TravisExercise.jar" basedir="bin">
+			<manifest>
+				<attribute name="Main-Class" value="Demo"/>
+			</manifest>
+		</jar>	
+	</target>
+		
+	
+
 	
 </project>
