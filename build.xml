@@ -17,7 +17,7 @@
 	</path>
 		
 	<target name="test">
-		<mkdir dir = "$junit.output.dir}" />
+		<mkdir dir = "${junit.output.dir}" />
 		<junit fork="yes" printsummary="withOutAndErr">
 			<formatter type="xml" />
 			<test name="test.OrderTest" todir="${junit.output.dir}" />
@@ -32,7 +32,7 @@
 		</junitreport>
 	</target>
 			
-
+	
   	<target name="init">
     	<mkdir dir="${blddir}" />
     	<mkdir dir="${classdir}" />
