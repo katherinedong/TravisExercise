@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<project name="DiscountStrategy" default="compile">
+<project name="DiscountStrategy" default="check">
   	<property name="blddir" location="build" />
   	<property name="classdir" location="${blddir}/classes" />
 	<property name="junit.output.dir" value="junit" />
@@ -9,7 +9,7 @@
 	
 	<path id="JUnit 4.libraryclasspath">
 		<pathelement location="${libraries}/org.junit_4.11.0.v201303080030/junit.jar" />
-		<pathelement location="${libaries}/org.hamcrest.core_1.3.0.v201303031735.jar" />
+		<pathelement location="${libraries}/org.hamcrest.core_1.3.0.v201303031735.jar" />
 	</path>
 	<path id="TravisExercise.classpath">
 		<pathelement location="bin" />
@@ -27,14 +27,14 @@
     	<mkdir dir="${classdir}" />
   	</target>
 
-  	<target name="compile" depends="init">
-   		<javac includeantruntime="false"
-      	srcdir="src"
-     	 destdir="${classdir}" />
+  	<target name="compile" depends="clean, init">
+   		<javac srcdir="src" destdir="${classdir}">
+   			<classpath refid="JUnit 4.libraryclasspath" />
+   		</javac>
   	</target>
 	
 	<target name="link">
-		<mkdir dir="${blddir}/jar"/>
+		
 		<jar destfile="${blddir}/jar/TravisExercise.jar" basedir="${classdir}">
 			<manifest>
 				<attribute name="Main-Class" value="Demo"/>
@@ -42,7 +42,7 @@
 		</jar>	
 	</target>
 	
-	<target name="check">
+	<target name="check" depends="compile">
 			<mkdir dir = "${junit.output.dir}" />
 			<junit fork="yes" printsummary="withOutAndErr">
 				<formatter type="xml" />
