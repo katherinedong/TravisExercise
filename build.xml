@@ -28,12 +28,12 @@
   	</target>
 
   	<target name="compile" depends="clean, init">
-   		<javac srcdir="src" destdir="${classdir}">
+   		<javac srcdir="src" destdir="${classdir}" includeantruntime="false">
    			<classpath refid="JUnit 4.libraryclasspath" />
    		</javac>
   	</target>
 	
-	<target name="link">
+	<target name="link" depends="compile">
 		
 		<jar destfile="${blddir}/jar/TravisExercise.jar" basedir="${classdir}">
 			<manifest>
@@ -42,7 +42,7 @@
 		</jar>	
 	</target>
 	
-	<target name="check" depends="compile">
+	<target name="check" depends="link, compile">
 			<mkdir dir = "${junit.output.dir}" />
 			<junit fork="yes" printsummary="withOutAndErr">
 				<formatter type="xml" />
