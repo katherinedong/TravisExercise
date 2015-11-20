@@ -34,7 +34,7 @@
   	</target>
 	
 	<target name="link" depends="compile">
-		
+		<mkdir dir="${blddir}/jar" />
 		<jar destfile="${blddir}/jar/TravisExercise.jar" basedir="${classdir}">
 			<manifest>
 				<attribute name="Main-Class" value="Demo"/>
@@ -42,7 +42,7 @@
 		</jar>	
 	</target>
 	
-	<target name="check" depends="link, compile">
+	<target name="check" depends="compile">
 			<mkdir dir = "${junit.output.dir}" />
 			<junit fork="yes" printsummary="withOutAndErr">
 				<formatter type="xml" />

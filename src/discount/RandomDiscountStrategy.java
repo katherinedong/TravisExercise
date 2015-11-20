@@ -6,15 +6,18 @@ public class RandomDiscountStrategy
   implements DiscountStrategy {
 
   private Random rng;
+  private float randomNumber;
 
   public RandomDiscountStrategy() {
     this.rng = new Random();
   }
-  public Random getRng() {
-	  return rng;
+
+  public float getRandomNumber() {
+	  return randomNumber;
   }
 
   public float applyDiscount(Order order) {
-    return order.getPrice() * rng.nextFloat();
+	randomNumber = rng.nextFloat();
+    return order.getPrice() * randomNumber;
   }
 }
